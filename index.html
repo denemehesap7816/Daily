@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f6f5f0"><title>Daily · Görevlerim</title><link rel="stylesheet" href="style.css"><script src="tasks.js" defer></script><script src="app.js" defer></script></head>
+<body><main>
+<header><a class="brand" href="./"><span>d.</span> daily</a><span id="date-label"></span></header>
+<div class="heading"><div><p class="eyebrow">BİR İŞ, BİR TİK.</p><h1>Görevlerim<span>.</span></h1><p class="subtitle">Yukarıdan aşağıya sırala, bitirdikçe tikle.</p></div><button id="enable-sound" type="button">Alarm sesini aç</button></div>
+<p class="alarm-note" id="alarm-note">Alarmlar bu sayfa açıkken çalışır. Safari arka plandayken gecikebilir.</p>
+<form id="add-form"><label class="sr-only" for="task-title">Yeni görev</label><input id="task-title" placeholder="Yeni bir görev yaz…" maxlength="240" autocomplete="off" required><button type="submit" id="add-button">＋ Ekle</button></form>
+<div id="alarm-alert" role="alert" hidden><strong>Alarm zamanı</strong><div id="alarm-items"></div><button id="dismiss-alarm" type="button">Tamam, kapat</button></div>
+<div class="list-heading"><h2>Yapılacaklar <span id="active-count">0</span></h2><span>Önce yapacağın en üstte</span></div>
+<div id="active-list"></div>
+<section class="completed-section"><div class="list-heading"><h2>Yapılanlar <span id="done-count">0</span></h2><span>Her tik bir adım.</span></div><div id="done-list"></div></section>
+<footer>Görevlerin bu tarayıcıda saklanır.</footer>
+</main><div class="toast" id="toast" role="status" hidden><span id="toast-text"></span><button id="undo-button" type="button">Geri al</button></div></body></html>

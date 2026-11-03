@@ -1,0 +1,15 @@
+const assert = require('node:assert/strict');
+const {reorder, alarmDue} = require('./tasks');
+const ordered = [{id:'a',done:false},{id:'b',done:true},{id:'c',done:false}];
+assert.equal(reorder(ordered,'c',-1),true);
+assert.deepEqual(ordered.map(t=>t.id),['c','b','a']);
+assert.equal(reorder(ordered,'c',-1),false);
+assert.equal(reorder(ordered,'b',1),false);
+const alarm = {done:false,alarmAt:'2026-11-03T12:30',alarmFired:false};
+const now = new Date('2026-11-03T12:30').getTime();
+assert.equal(alarmDue(alarm,now-1),false);
+assert.equal(alarmDue(alarm,now),true);
+assert.equal(alarmDue({...alarm,done:true},now),false);
+assert.equal(alarmDue({...alarm,alarmFired:true},now),false);
+assert.equal(alarmDue({...alarm,alarmAt:'invalid'},now),false);
+console.log('Reordering and alarm scheduling: passed');
